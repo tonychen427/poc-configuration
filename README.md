@@ -15,6 +15,7 @@ update maven to v3.3.9
 * $ brew install maven
 
 
+#UI Demo Framework (AngularJS / ReactJS)
 * http://localhost:8080/demo1
 * http://localhost:8080/demo2
 
