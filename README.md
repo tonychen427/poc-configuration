@@ -12,8 +12,6 @@ $ brew update
 $ brew unlink maven
 $ brew install maven
 
-
-
 http://localhost:8080/demo1
 http://localhost:8080/demo2
 
