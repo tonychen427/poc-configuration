@@ -3,9 +3,9 @@
 
 ## Install / Run
 
-*mvn clean 
-*mvn install
-*mvn jetty:run
+* mvn clean
+* mvn install
+* mvn jetty:run
 
 
 update maven to v3.3.9
