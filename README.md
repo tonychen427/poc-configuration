@@ -1,6 +1,7 @@
-The Spring Web model-view-controller (MVC) framework is designed around a DispatcherServlet 
-that dispatches requests to handlers, with configurable handler mappings, view resolution, 
-locale, time zone and theme resolution.
+
+#zPay API Console
+
+## Install / Run
 
 mvn clean 
 mvn install
@@ -12,11 +13,20 @@ $ brew unlink maven
 $ brew install maven
 
 
+
 http://localhost:8080/demo1
 http://localhost:8080/demo2
 
+
+#API Console
 http://localhost:8080/zpay/
-http://localhost:8080/api/zPay/getVendorInfoByQRCode/OTY=
+
+#Restful API 
+
+GET: http://localhost:8080/api/zPay/getVendorInfoByQRCode/{qrCode}
+
+
+
 
 
 Under construction - Build - Deploy
