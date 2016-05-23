@@ -29,6 +29,21 @@ public class ZPayRestfulController {
     @Autowired
     IEncryptorService _EncryptorService;
 
+    
+    @RequestMapping(value = "/decryptQRCode/{qrCode}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> decryptQRCode(@PathVariable("qrCode") String qrCode) {
+       
+        try {
+            String code = _EncryptorService.decryptCode(qrCode);                    
+            return new ResponseEntity<String>(code, HttpStatus.OK);
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ZPayRestfulController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+        }
+        
+    }
+    
     @RequestMapping(value = "/getVendorInfoByQRCode/{qrCode}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> listVendorUsers(@PathVariable("qrCode") String qrCode) {
        

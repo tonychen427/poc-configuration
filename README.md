@@ -23,9 +23,5 @@ http://localhost:8080/zpay/
 
 GET: http://localhost:8080/api/zPay/getVendorInfoByQRCode/{qrCode}
 
-
-
-
-
-Under construction - Build - Deploy
+##Under construction - Build - Deploy
 node ./src/main/webapp/bower_components/r.js/dist/r.js -o build.js

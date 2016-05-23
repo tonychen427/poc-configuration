@@ -30,8 +30,8 @@
             </tr>
             </thead>
             <c:forEach items="${users}" var="user">
-                <tr>
-                    <td><img src="/qrCode/${user.qrCode}"></td>
+                <tr>            
+                    <td><img src="/qrCode/${user.id}"></td>                    
                     <td>${user.firstname}</td>
                     <td>${user.lastname}</td>
                     <td>${user.email}</td>
