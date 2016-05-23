@@ -30,7 +30,7 @@ public class UserRestController {
     IUserService  _userService;  //Service which will do all data retrieval/manipulation work
 
     //-------------------Retrieve All Users--------------------------------------------------------
-    @RequestMapping(value = "/user/", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/", method = RequestMethod.GET)
     public ResponseEntity<List<User>> listAllUsers() {
    
         List<User> users = _userService.GetUsers();//  .findAllUsers();
