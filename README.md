@@ -1,6 +1,8 @@
 
 #zPay API Console
 
+<img src="http://maggie.clientsbox.com/img/zpay.png">
+
 ### Install / Run
 
 * mvn clean
