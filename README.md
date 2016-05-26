@@ -28,9 +28,9 @@ update maven to v3.3.9
 
 ### Additional Info 
     
-    public static final String gcm_url = "https://gcm-http.googleapis.com/gcm/send";
-    public static final String project_number = "615249975727";  //sender_id
-    public static final String api_key = "AIzaSyAF4kKR_g9skGhyTJ-P2JQ4B3viDnV5ddc";
+* public static final String gcm_url = "https://gcm-http.googleapis.com/gcm/send";
+* public static final String project_number = "615249975727";  //sender_id
+* public static final String api_key = "AIzaSyAF4kKR_g9skGhyTJ-P2JQ4B3viDnV5ddc";
 
 ### Restful API 
 
@@ -44,20 +44,20 @@ User API
 * GET:    http://localhost:8080/api/user/{id}
 * POST:   http://localhost:8080/api/user/   @RequestBody User user
 
-'''sh
-   {
-	"firstname" : "Tony",
-	"lastname" : "Chen",
-	"username" : "tchen",
-	"password" : "welcome123",
-	"gender" : "male",
-	"email" : "tchen427@gmail.com",
-	"telephone" : "561-901-5698",
-	"address" : "san jose",
-	"registrationid": "djO6PMXp0rY:APA91bH3SUSaq68U9ne1LAWxTEcRYmIlHdiiumpHTSJNJxlNoNmleorWk8xhwN1BDYtZUqIjqxHdLvHnVy9R6K9755nXKV9vzbWLVCRIn0mSPhRqFJs70Rde0JDgESk-K6thH4qLfNJw",
-        "qrcode": "MQ=="
-    }
-'''sh
+
+-{
+-    "firstname" : "Tony",
+-    "lastname" : "Chen",
+-    "username" : "tchen",
+-    "password" : "welcome123",
+-    "gender" : "male",
+-    "email" : "xxxx@gmail.com",
+-    "telephone" : "561-901-5698",
+-    "address" : "san jose",
+-    "registrationid": "xxxxxx",
+-    "qrcode": "xxxx"
+-}
+
 
 * PUT:    http://localhost:8080/api/user/   @RequestBody User user
 * DELETE: http://localhost:8080/api/user/   @RequestBody @ID
