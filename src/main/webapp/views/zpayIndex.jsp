@@ -37,7 +37,8 @@
                     <td>${user.email}</td>
                     <td>${user.telephone}</td>                    
                     <td>                        
-                        <div>GET: /api/zPay/getVendorInfoByQRCode/${user.qrCode}</div>
+                        <div>GET: /api/zPay/getVendorInfoByQRCode/${user.qrcode}</div>
+                        <div>GET: /api/zPay/broadcastMsgByQRCode/${user.qrcode}</div>
                     </td>
                 </tr>                
             </c:forEach>

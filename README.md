@@ -37,6 +37,20 @@ User API
 * GET:    http://localhost:8080/api/users/
 * GET:    http://localhost:8080/api/user/{id}
 * POST:   http://localhost:8080/api/user/   @RequestBody User user
+
+   {
+	"firstname" : "Tony",
+	"lastname" : "Chen",
+	"username" : "tchen",
+	"password" : "welcome123",
+	"gender" : "male",
+	"email" : "tchen427@gmail.com",
+	"telephone" : "561-901-5698",
+	"address" : "san jose",
+	"registrationid": "djO6PMXp0rY:APA91bH3SUSaq68U9ne1LAWxTEcRYmIlHdiiumpHTSJNJxlNoNmleorWk8xhwN1BDYtZUqIjqxHdLvHnVy9R6K9755nXKV9vzbWLVCRIn0mSPhRqFJs70Rde0JDgESk-K6thH4qLfNJw",
+        "qrcode": "MQ=="
+    }
+
 * PUT:    http://localhost:8080/api/user/   @RequestBody User user
 * DELETE: http://localhost:8080/api/user/   @RequestBody @ID
 * DELETE: http://localhost:8080/api/users/

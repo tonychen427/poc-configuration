@@ -11,7 +11,8 @@ public class User {
     String email;
     String telephone;
     String address;
-    String qrCode;
+    String qrcode;
+    String registrationid;
 
     public Integer getId() {
         return id;
@@ -85,14 +86,21 @@ public class User {
         this.address = address;
     }
 
-    public String getQrCode() {
-        return qrCode;
+    public String getQrcode() {
+        return qrcode;
     }
 
-    public void setQrCode(String qrCode) {
-        this.qrCode = qrCode;
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
     }
 
-   
+    public String getRegistrationid() {
+        return registrationid;
+    }
 
+    public void setRegistrationid(String registrationid) {
+        this.registrationid = registrationid;
+    }
+
+    
 }

@@ -5,6 +5,11 @@
  */
 package com._8x8.data.repository;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -18,6 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONObject;
 
 /**
  *
@@ -113,6 +119,47 @@ public class ConnectorHelper {
             }
             if (rs != null) {
                 rs.close();
+            }
+        }
+    }
+    
+    
+     public String sendHTTPData(String urlpath, JSONObject json) {
+        HttpURLConnection connection = null;
+        try {
+            URL url=new URL(urlpath);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("Authorization", "key=AIzaSyAF4kKR_g9skGhyTJ-P2JQ4B3viDnV5ddc");
+            OutputStreamWriter streamWriter = new OutputStreamWriter(connection.getOutputStream());
+            streamWriter.write(json.toString());
+            streamWriter.flush();
+            StringBuilder stringBuilder = new StringBuilder();
+            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+                InputStreamReader streamReader = new InputStreamReader(connection.getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(streamReader);
+                String response = null;
+                while ((response = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(response + "\n");
+                }
+                bufferedReader.close();
+
+                //Log.d("test", stringBuilder.toString());
+                return stringBuilder.toString();
+            } else {
+                //Log.e("test", connection.getResponseMessage());
+                return null;
+            }
+        } catch (Exception exception){
+            //Log.e("test", exception.toString());
+            return null;
+        } finally {
+            if (connection != null){
+                connection.disconnect();
             }
         }
     }

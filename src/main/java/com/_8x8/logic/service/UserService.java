@@ -10,36 +10,42 @@ import org.springframework.stereotype.Service;
 public class UserService implements IUserService {
 
     @Autowired
-    IUserRepository _usesrRepository;
+    IUserRepository _userRepository;
 
     @Override
     public List<User> GetUsers() {
-        return _usesrRepository.GetUsers();
+        return _userRepository.GetUsers();
     }
 
     @Override
     public User GetUserById(int Id) {
-        return _usesrRepository.GetUserById(Id);
+        return _userRepository.GetUserById(Id);
     }
 
     @Override
     public void UpdateUserById(User user) {
-        _usesrRepository.UpdateUserById(user);
+        _userRepository.UpdateUserById(user);
     }
 
     @Override
     public void RemoveUserById(int Id) {
-       _usesrRepository.RemoveUserById(Id);
+       _userRepository.RemoveUserById(Id);
     }
 
     @Override
     public int InsertUser(User user) {
-        return _usesrRepository.InsertUser(user);
+        return _userRepository.InsertUser(user);
     }
     
     @Override
     public boolean isUserExist(User user) {
       //return _usesrRepository.GetUserById(user.getId()).getUsername() == null;
-        return _usesrRepository.GetUserById(user.getId()) == null;
+        List<User> userList = _userRepository.GetUsers();
+        for (User myUser : userList) {
+            if(myUser.getUsername().equals(user.getUsername())){
+              return true;  
+            }
+        }
+        return false;
     }
 }

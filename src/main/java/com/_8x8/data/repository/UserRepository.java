@@ -35,7 +35,7 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
                             String id = pair.getValue().toString();
                             mUser.setId(Integer.parseInt(id));
                             try {
-                                mUser.setQrCode(_encryptorService.encryptCode(id));
+                                mUser.setQrcode(_encryptorService.encryptCode(id));
                             } catch (Exception ex) {
                                 Logger.getLogger(UserRepository.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -63,6 +63,12 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
                             break;
                         case "address":
                             mUser.setAddress(pair.getValue().toString());
+                            break;
+                        case "registrationid":
+                            mUser.setRegistrationid(pair.getValue().toString());
+                            break;
+                        case "qrcode":
+                            mUser.setQrcode(pair.getValue().toString());
                             break;
                     }
                     //System.out.println(pair.getKey() + " = " + pair.getValue());
@@ -93,7 +99,7 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
                             String id = pair.getValue().toString();
                             mUser.setId(Integer.parseInt(id));
                             try {
-                                mUser.setQrCode(_encryptorService.encryptCode(id));
+                                mUser.setQrcode(_encryptorService.encryptCode(id));
                             } catch (Exception ex) {
                                 Logger.getLogger(UserRepository.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -122,6 +128,12 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
                         case "address":
                             mUser.setAddress(pair.getValue().toString());
                             break;
+                        case "registrationid":
+                            mUser.setRegistrationid(pair.getValue().toString());
+                            break;
+                        case "qrcode":
+                            mUser.setQrcode(pair.getValue().toString());
+                            break;
                     }
                     //System.out.println(pair.getKey() + " = " + pair.getValue());
                     entries.remove(); // avoids a ConcurrentModificationException
@@ -147,6 +159,8 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
                 + " telephone=" + user.getTelephone() + ", "
                 + " email=" + user.getEmail() + ", "
                 + " address=" + user.getAddress()
+                + " registrationid=" + user.getRegistrationid()
+                + " qrcode=" + user.getQrcode()
                 + " WHERE Id=" + user.getId();
         try {
             this.ExecuteQuery(sql);
@@ -170,7 +184,7 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
     public int InsertUser(User user) {
         int insertedId = 0;
         List<Map<String, Object>> rs;
-        String sql = "INSERT INTO  [dbo].[z8x8User]  (firstname, lastname, username, password, gender, email, telephone, address) \n"
+        String sql = "INSERT INTO  [dbo].[z8x8User]  (firstname, lastname, username, password, gender, email, telephone, address, registrationid, qrcode) \n"
                 + "OUTPUT Inserted.Id "
                 + "values ( "
                 + "'" + user.getFirstname() + "', "
@@ -180,7 +194,9 @@ public class UserRepository extends ConnectorHelper implements IUserRepository {
                 + "'" + user.getGender() + "', "
                 + "'" + user.getEmail() + "', "
                 + "'" + user.getTelephone() + "', "
-                + "'" + user.getAddress()
+                + "'" + user.getAddress() + "', "
+                + "'" + user.getRegistrationid() + "', "
+                + "'" + user.getQrcode()
                 + "')";
         try {
             rs = this.ExecuteQuery(sql);
