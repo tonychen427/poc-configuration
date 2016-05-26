@@ -5,6 +5,7 @@
  */
 package com._8x8.data.repository;
 
+import com._8x8.constant.GCM_Services;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -134,7 +135,7 @@ public class ConnectorHelper {
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
-            connection.setRequestProperty("Authorization", "key=AIzaSyAF4kKR_g9skGhyTJ-P2JQ4B3viDnV5ddc");
+            connection.setRequestProperty("Authorization", "key=" + GCM_Services.api_key);
             OutputStreamWriter streamWriter = new OutputStreamWriter(connection.getOutputStream());
             streamWriter.write(json.toString());
             streamWriter.flush();

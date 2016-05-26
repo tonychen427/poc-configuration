@@ -29,8 +29,8 @@ update maven to v3.3.9
 ### Additional Info 
     
 * public static final String gcm_url = "https://gcm-http.googleapis.com/gcm/send";
-* public static final String project_number = "615249975727";  //sender_id
-* public static final String api_key = "AIzaSyAF4kKR_g9skGhyTJ-P2JQ4B3viDnV5ddc";
+* public static final String project_number = "43563062079";  //sender_id
+* public static final String api_key = "AIzaSyDpF8Xh3x9ujmRF_zzKclX8C8gF4HqvFmo";
 
 ### Restful API 
 
