@@ -35,6 +35,7 @@ update maven to v3.3.9
 ### Restful API 
 
 QRCode API
+* GET: http://localhost:8080/api/zPay/broadcastMsgByQRCode/{qrCode}
 * GET: http://localhost:8080/api/zPay/getVendorInfoByQRCode/{qrCode}
 * GET: http://localhost:8080/api/zPay/decryptQRCode/{qrCode}
 
@@ -45,6 +46,7 @@ User API
 * POST:   http://localhost:8080/api/user/   @RequestBody User user
 
 ```
+POST JSON
 {
     "firstname" : "Tony",
     "lastname" : "Chen",
