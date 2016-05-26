@@ -44,20 +44,20 @@ User API
 * GET:    http://localhost:8080/api/user/{id}
 * POST:   http://localhost:8080/api/user/   @RequestBody User user
 
-
--{
--    "firstname" : "Tony",
--    "lastname" : "Chen",
--    "username" : "tchen",
--    "password" : "welcome123",
--    "gender" : "male",
--    "email" : "xxxx@gmail.com",
--    "telephone" : "561-901-5698",
--    "address" : "san jose",
--    "registrationid": "xxxxxx",
--    "qrcode": "xxxx"
--}
-
+```
+{
+    "firstname" : "Tony",
+    "lastname" : "Chen",
+    "username" : "tchen",
+    "password" : "welcome123",
+    "gender" : "male",
+    "email" : "xxxx@gmail.com",
+    "telephone" : "561-901-5698",
+    "address" : "san jose",
+    "registrationid": "xxxxxx",
+    "qrcode": "xxxx"
+}
+```
 
 * PUT:    http://localhost:8080/api/user/   @RequestBody User user
 * DELETE: http://localhost:8080/api/user/   @RequestBody @ID
