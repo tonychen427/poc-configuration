@@ -1,9 +1,11 @@
 package com._8x8.presentation.controller;
 
 
+import com._8x8.logic.service.IGCMService;
 import com._8x8.logic.service.IUserPhoneLogProvider;
 import com._8x8.logic.service.IUserPhoneLogService;
 import com._8x8.logic.service.IUserService;
+import com._8x8.presentation.model.GCM;
 import com._8x8.presentation.model.User;
 import java.util.List;
 
@@ -26,6 +28,9 @@ public class indexController {
 
     @Autowired
     IUserPhoneLogProvider _userPhoneLogProvider;
+    
+    @Autowired
+    IGCMService _gcmService;
 
     @RequestMapping(value = "/{name:.+}", method = RequestMethod.GET)
     public String spaIndex(@PathVariable("name")String name, ModelMap model) {
@@ -38,10 +43,11 @@ public class indexController {
     public ModelAndView zpayIndex() {
         
         List<User> mUser = _userSerice.GetUsers();
-        
+        GCM mGCM = _gcmService.GetGCMs().get(0);
         ModelAndView model = new ModelAndView();
         model.setViewName("zpayIndex");        
         model.addObject("users", mUser);
+        model.addObject("gcm", mGCM);
         return model;
     }
 }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com._8x8.data.repository;
+package com._8x8.data.helper;
 
 import com._8x8.constant.GCM_Services;
+import com._8x8.presentation.model.GCM;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -125,17 +126,17 @@ public class ConnectorHelper {
     }
     
     
-     public String sendHTTPData(String urlpath, JSONObject json) {
+     public String sendGCMHTTPData(JSONObject json, GCM gcm) {
         HttpURLConnection connection = null;
         try {
-            URL url=new URL(urlpath);
+            URL url=new URL(gcm.getGcmSendURL());
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Accept", "application/json");
-            connection.setRequestProperty("Authorization", "key=" + GCM_Services.api_key);
+            connection.setRequestProperty("Authorization", "key=" + gcm.getGcmAPIKey());
             OutputStreamWriter streamWriter = new OutputStreamWriter(connection.getOutputStream());
             streamWriter.write(json.toString());
             streamWriter.flush();

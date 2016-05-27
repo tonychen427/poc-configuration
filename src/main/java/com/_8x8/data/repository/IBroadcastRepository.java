@@ -5,10 +5,12 @@
  */
 package com._8x8.data.repository;
 
+import com._8x8.presentation.model.GCM;
+
 /**
  *
  * @author ttran
  */
 public interface IBroadcastRepository {
-    public Boolean sendBroadcastMsg (String msg, String RegisterId);
+    public Boolean sendBroadcastMsg (String msg, String RegisterId , GCM gcm);
 }

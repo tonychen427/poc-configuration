@@ -10,10 +10,6 @@ import javax.xml.bind.DatatypeConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author ttran
- */
 @Service
 public class EncryptorService implements IEncryptorService {
 

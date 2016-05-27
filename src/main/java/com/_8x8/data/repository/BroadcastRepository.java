@@ -5,21 +5,21 @@
  */
 package com._8x8.data.repository;
 
+import com._8x8.data.helper.ConnectorHelper;
 import com._8x8.constant.GCM_Services;
+import com._8x8.presentation.model.GCM;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class BroadcastRepository extends ConnectorHelper implements IBroadcastRepository {
 
     @Override
-    public Boolean sendBroadcastMsg(String msg, String RegisterId) {        
-        String Url = GCM_Services.gcm_url;
-
+    public Boolean sendBroadcastMsg(String msg, String RegisterId, GCM gcm) {        
+   
         String jsonStr = "[  "
                 + " {"
                 + "   \"data\": {"
@@ -31,7 +31,7 @@ public class BroadcastRepository extends ConnectorHelper implements IBroadcastRe
 
         try {
             JSONArray array = new JSONArray(jsonStr);
-            this.sendHTTPData(Url, array.getJSONObject(0));
+            this.sendGCMHTTPData(array.getJSONObject(0), gcm);
         } catch (JSONException ex) {
             Logger.getLogger(BroadcastRepository.class.getName()).log(Level.SEVERE, null, ex);
         }

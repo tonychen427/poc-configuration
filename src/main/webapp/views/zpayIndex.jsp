@@ -12,22 +12,39 @@
             .vendorAPIWrapper thead tr > th {
                 text-align: left;
             }
+            .GCMWrapper {
+                width: 100%;
+            }
+            .GCMWrapper .gcmValue {
+                width: 100%;
+            }
         </style>
     </head>
     <body>
-        <table class="vendorAPIWrapper">
+
+
+        <table class="GCMWrapper">
             <thead>
-            <tr>
-                <th colspan="5"><h1>zPay API Console - Sandbox</h1></th>
-            </tr>
-            <tr>
-                <th>QR Code</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone #</th>
-                <th>API</th>
-            </tr>
+                <tr>
+                    <th colspan="3"><h1>zPay API Console - Sandbox</h1></th>
+                </tr>                               
+            </thead>
+            <tr><td style='width:250px;'>GCM URL:</td><td><input class='gcmValue' value="${gcm.gcmSendURL}"></td></tr>
+            <tr><td style='width:250px;'>Project Number:</td><td><input class='gcmValue' value="${gcm.gcmProjectNumber}"></td></tr>
+            <tr><td style='width:250px;'>API Key:</td><td><input class='gcmValue' value="${gcm.gcmAPIKey}"></td></tr>
+        </table>
+
+        <br>
+
+        <table class="vendorAPIWrapper">            
+                <tr>
+                    <th>QR Code</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone #</th>
+                    <th>API</th>
+                </tr>
             </thead>
             <c:forEach items="${users}" var="user">
                 <tr>            
@@ -42,6 +59,6 @@
                     </td>
                 </tr>                
             </c:forEach>
-        </table>
-    </body>
+            </table>
+</body>
 </html>

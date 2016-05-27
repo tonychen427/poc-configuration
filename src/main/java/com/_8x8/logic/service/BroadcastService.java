@@ -6,7 +6,9 @@
 package com._8x8.logic.service;
 
 import com._8x8.data.repository.IBroadcastRepository;
+import com._8x8.data.repository.IGCMRepository;
 import com._8x8.data.repository.IUserRepository;
+import com._8x8.presentation.model.GCM;
 import com._8x8.presentation.model.User;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +23,18 @@ public class BroadcastService implements IBroadcastService{
     @Autowired
     IBroadcastRepository _broadcastRepository;
     
+    @Autowired
+    IGCMRepository _gcmRepository;
+    
     @Override
     public Boolean SendBroadcastMsg(String Msg, String QRCode) {
+        GCM mGCM = _gcmRepository.GetGCMs().get(0);
         List<User> UserList = _userRepository.GetUsers();
         for (User user : UserList) {
             if (user.getQrcode() == null ? QRCode == null : user.getQrcode().equals(QRCode)) {
                 //String RegisterId = "djO6PMXp0rY:APA91bH3SUSaq68U9ne1LAWxTEcRYmIlHdiiumpHTSJNJxlNoNmleorWk8xhwN1BDYtZUqIjqxHdLvHnVy9R6K9755nXKV9vzbWLVCRIn0mSPhRqFJs70Rde0JDgESk-K6thH4qLfNJw";
                 String RegisterId = user.getRegistrationid();
-                return _broadcastRepository.sendBroadcastMsg(Msg, RegisterId);
+                return _broadcastRepository.sendBroadcastMsg(Msg, RegisterId, mGCM);
             }
         }
         return false;
