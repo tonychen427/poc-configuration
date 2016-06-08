@@ -68,3 +68,10 @@ POST JSON
 
 ### Under construction - Build - Deploy
 * node ./src/main/webapp/bower_components/r.js/dist/r.js -o build.js
+
+
+### Android QR Scanner
+https://www.numetriclabz.com/android-qr-code-scanner-using-zxingscanner-library-tutorial/
+
+### Andoird Login
+http://sourcey.com/beautiful-android-login-and-signup-screens-with-material-design/
