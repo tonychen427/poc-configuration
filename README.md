@@ -73,5 +73,6 @@ POST JSON
 ### Android QR Scanner
 https://www.numetriclabz.com/android-qr-code-scanner-using-zxingscanner-library-tutorial/
 
-### Andoird Login
+### Andoird UI
 http://sourcey.com/beautiful-android-login-and-signup-screens-with-material-design/
+http://www.androidhive.info/2015/09/android-material-design-working-with-tabs/
